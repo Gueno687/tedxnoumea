@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEDxNouméa — Des idées qui changent le monde</title>
+  <link rel="icon" type="image/png" href="favicon_tedxnoumea.png" />
+  <link rel="apple-touch-icon" href="favicon_tedxnoumea.png" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.tedxnoumea.org/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TEDxNouméa — Des idées qui changent le monde" />
+  <meta property="og:description" content="TEDxNouméa réunit chaque année des voix inspirantes en Nouvelle-Calédonie. Découvrez nos talks et candidatez pour 2026." />
+  <meta property="og:url" content="https://www.tedxnoumea.org/" />
+  <meta property="og:image" content="https://www.tedxnoumea.org/tedxnoumea-social.png" /> 
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TEDxNouméa" />
+  <meta name="twitter:image" content="https://www.tedxnoumea.org/tedxnoumea-social.png" />
+  <meta name="description" content="TEDxNouméa, l'événement des idées qui valent la peine d'être partagées, depuis 2016 en Nouvelle-Calédonie." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:    #E50127;
+      --black:  #111111;
+      --offwhite: #f5f2ed;
+      --warm:   #f0ebe3;
+      --grey:   #888888;
+      --light-grey: #d8d3cc;
+      --font-display: 'Inter', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--offwhite);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 3rem;
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      overflow: visible;
+      flex-shrink: 0;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    nav ul a {
+      color: var(--offwhite);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      opacity: 1 !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: #c8001f; }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 3rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+      z-index: 0;
+    }
+    /* Placeholder image zone - will be replaced by user's photo */
+    .hero-photo-placeholder {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 52%;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      border-left: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .hero-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .placeholder-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #444;
+    }
+    .placeholder-icon {
+      width: 56px; height: 56px;
+      border: 2px dashed #333;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .placeholder-icon svg { opacity: 0.25; }
+
+    /* Diagonal cut between text and photo */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 48%;
+      width: 120px; height: 100%;
+      background: var(--black);
+      clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 52%;
+      padding-right: 4rem;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 5.5vw, 6rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      font-weight: 900;
+      color: var(--red);
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(245,242,237,0.65);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #c8001f; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--offwhite);
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--offwhite); background: rgba(255,255,255,0.05); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem; left: 3rem;
+      display: flex; gap: 3rem;
+      z-index: 2;
+    }
+    .stat-item { text-align: left; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.2rem;
+    }
+
+    /* ===================== SECTIONS GENERAL ===================== */
+    section {
+      padding: 7rem 3rem;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===================== ABOUT ===================== */
+    #about {
+      background: var(--offwhite);
+      color: var(--black);
+    }
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.2rem;
+    }
+    .about-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 0.8rem;
+    }
+    .photo-slot {
+      background: #ddd;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-slot:first-child {
+      grid-row: span 2;
+    }
+    .photo-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-slot .ph-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    .photo-slot svg { opacity: 0.3; }
+
+    /* ===================== TALKS SECTION ===================== */
+    #talks {
+      background: var(--black);
+    }
+    .talks-header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .talks-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .talk-card {
+      background: #1a1a1a;
+      border-radius: 3px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .talk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+    .talk-thumb {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      background: #222;
+      overflow: hidden;
+    }
+    .talk-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .talk-card:hover .talk-thumb img { transform: scale(1.04); }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      transition: background 0.2s;
+    }
+    .talk-card:hover .play-overlay { background: rgba(0,0,0,0.15); }
+    .play-btn {
+      width: 44px; height: 44px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s;
+    }
+    .talk-card:hover .play-btn { transform: scale(1.1); }
+    .play-btn svg { margin-left: 3px; }
+
+    .talk-info {
+      padding: 1rem 1rem 1.1rem;
+    }
+    .talk-year {
+      font-size: 0.67rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.3rem;
+    }
+    .talk-title {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+      color: var(--offwhite);
+      /* Clamp to 2 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .talk-speaker {
+      font-size: 0.75rem;
+      color: var(--grey);
+      font-weight: 400;
+    }
+    .talk-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      color: #444;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===================== MODAL / PLAYER ===================== */
+    #modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #modal.open { display: flex; }
+    .modal-inner {
+      width: 100%;
+      max-width: 900px;
+    }
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--offwhite);
+      line-height: 1.3;
+    }
+    .modal-speaker {
+      font-size: 0.85rem;
+      color: var(--grey);
+      margin-top: 0.2rem;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--offwhite);
+      cursor: pointer;
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      opacity: 0.6;
+      transition: opacity 0.15s;
+    }
+    .modal-close:hover { opacity: 1; }
+    .modal-player {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+    }
+    .modal-player iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===================== AUDITIONS ===================== */
+    #auditions {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+    }
+    #auditions .section-title { color: #fff; }
+    #auditions .section-eyebrow { color: rgba(255,255,255,0.7); }
+    #auditions p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
+      line-height: 1.75;
+    }
+    .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--red);
+      text-decoration: none;
+      padding: 1rem 2.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-white:hover { background: #f5f2ed; transform: translateY(-1px); }
+/* ===================== CONTACT ===================== */
+    #contact {
+      background: var(--offwhite);
+      color: var(--black);
+    }
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-text p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: var(--red);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { color: #fff; }
+    .contact-detail strong {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail a, .contact-detail span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .contact-detail a:hover { color: var(--red); }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .social-link {
+      width: 40px; height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      color: #666;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-link:hover { border-color: var(--red); color: var(--red); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--black);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    .footer-logo span { color: var(--red); }
+    footer p {
+      font-size: 0.75rem;
+      color: #444;
+      letter-spacing: 0.05em;
+    }
+    .ted-mention {
+      font-size: 0.72rem;
+      color: #333;
+      max-width: 360px;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    /* ===================== HERO PHOTO CREDIT ===================== */
+    .hero-photo-credit {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.7rem;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+      font-weight: 300;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ===================== SKELETON LOADER ===================== */
+    .skeleton {
+      background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      .talks-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { display: none; }
+      #hero { padding: 0 1.5rem; }
+      .hero-photo-placeholder { display: none; }
+      .hero-content { max-width: 100%; padding-right: 0; }
+      .hero-bg::after { display: none; }
+      .hero-stats { left: 1.5rem; bottom: 2rem; gap: 2rem; }
+      section { padding: 4rem 1.5rem; }
+      .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo-grid { display: none; }
+      .talks-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-slot.large { grid-column: span 1; grid-row: span 1; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .ted-mention { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .talks-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===================== YEAR FILTER ===================== */
+    .year-filter-btn {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #777;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .year-filter-btn:hover, .year-filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .year-group-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: -0.02em;
+      margin: 3rem 0 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #222;
+    }
+    .year-group-title:first-child { margin-top: 0; }
+    .talks-grid { display: grid; grid-template-columns: repeat(4,1fr); gap:1.5rem; }
+    @media (max-width:1024px) { .talks-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width:768px)  { .talks-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:480px)  { .talks-grid { grid-template-columns: 1fr; } }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="logotedxnoumea.png" alt="TEDxNouméa" style="height:40px;width:auto;display:block;" />
+  </div>
+  <ul>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#talks">Conférences</a></li>
+    <li><a href="#partenaires">Partenaires</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://forms.gle/HHLRxAATYXz8TWDH8" target="_blank" rel="noopener" class="nav-cta">Candidater 2026</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo-placeholder" id="heroPhoto">
+    <img src="HERO.jpg" alt="TEDxNouméa" id="heroPhotoImg" />
+    <div class="hero-photo-credit">Photo © Matthieu Dunias</div>
+  </div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Nouvelle-Calédonie · Depuis 2016</span>
+    <h1 class="hero-title">Des idées qui valent la peine d'être <em>partagées.</em></h1>
+    <p class="hero-subtitle">TEDxNouméa réunit chaque année des personnes qui pensent, innovent et se passionnent pour des conférences qui inspirent, questionnent et transforment.</p>
+    <div class="hero-actions">
+      <a href="https://forms.gle/HHLRxAATYXz8TWDH8" target="_blank" rel="noopener" class="btn-primary">Candidater pour 2026</a>
+      <a href="#talks" class="btn-secondary">Voir les talks</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-number">2016</div>
+      <div class="stat-label">Première édition</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">68</div>
+      <div class="stat-label">Talks publiés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2M+</div>
+      <div class="stat-label">Vues sur YouTube</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-eyebrow">À propos</p>
+      <h2 class="section-title">L'événement des idées en Nouvelle-Calédonie</h2>
+      <p>Depuis 2016, TEDxNouméa offre une scène aux voix calédoniennes. Chaque édition réunit des conférencier·es venu·es de tous les horizons&nbsp;: sciences, arts, entrepreneuriat, environnement, culture kanak, aventure humaine.</p>
+      <p>Organisé sous licence indépendante TED, TEDxNouméa est un événement porté par une équipe passionnée. Les conférences sont filmées et publiées sur la chaîne internationale <strong>TEDxTalks</strong> sur YouTube, rendant les idées calédoniennes accessibles au monde entier.</p>
+      <p>L'édition 2026 est en préparation. Les auditions sont ouvertes. Vous avez une idée à partager&nbsp;? C'est le moment de candidater.</p>
+      <a href="https://forms.gle/HHLRxAATYXz8TWDH8" target="_blank" rel="noopener" class="btn-primary" style="margin-top:0.5rem;">Candidater pour l'édition 2026</a>
+    </div>
+    <div class="about-photo-grid">
+      <div class="photo-slot">
+        <img src="images/AP_photo1.jpg" alt="TEDxNouméa - la scène" />
+      </div>
+      <div class="photo-slot">
+        <img src="images/AP_photo2.jpg" alt="TEDxNouméa - le public" />
+      </div>
+      <div class="photo-slot">
+        <img src="images/AP_photo3.jpg" alt="TEDxNouméa - backstage" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="auditions">
+  <p class="section-eyebrow">Édition 2026</p>
+  <h2 class="section-title">Vous avez une idée à partager ?</h2>
+  <p>Les auditions pour TEDxNouméa 2026 sont ouvertes. Toute personne ayant une idée originale, une expérience singulière ou une vision à partager peut candidater. La sélection repose sur la force de l'idée&nbsp;: notoriété, parcours, profession ou origine n'entrent pas en compte.</p>
+  <a href="https://forms.gle/HHLRxAATYXz8TWDH8" target="_blank" rel="noopener" class="btn-white">Remplir le formulaire d'inscription aux auditions</a>
+</section>
+
+<section id="partenaires" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+      <div>
+        <p class="section-eyebrow">Partenariats 2026</p>
+        <h2 class="section-title" style="color:var(--offwhite);">Rejoignez l'aventure TEDxNouméa</h2>
+        <p style="color:rgba(245,242,237,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:1.2rem;">
+          TEDxNouméa est un événement culturel unique en Nouvelle-Calédonie. Chaque édition rassemble des centaines de personnes autour d'idées qui inspirent, questionnent et transforment la société.
+        </p>
+        <p style="color:rgba(245,242,237,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:1.2rem;">
+          En devenant partenaire, votre organisation s'associe à un projet à impact fort, visible localement et diffusé sur la chaîne internationale <strong style="color:var(--offwhite);">TEDxTalks</strong> sur YouTube. Votre logo apparaît sur scène, dans les vidéos publiées, sur le site et sur les réseaux sociaux.
+        </p>
+        <p style="color:rgba(245,242,237,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:2rem;">
+          Quatre niveaux de partenariat sont disponibles, à partir de 150 000 F CFP.
+        </p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+          <a href="#packs-sponsors" class="btn-primary">Découvrir les packs sponsors</a>
+          <a href="#contact" class="btn-secondary">Nous contacter</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:var(--red);line-height:1;">2016</div>
+          <div style="font-size:0.72rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:0.4rem;">Première édition</div>
+        </div>
+        <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:var(--red);line-height:1;">2M+</div>
+          <div style="font-size:0.72rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:0.4rem;">Vues YouTube</div>
+        </div>
+        <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:var(--red);line-height:1;">6</div>
+          <div style="font-size:0.72rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:0.4rem;">Éditions organisées</div>
+        </div>
+        <div style="background:var(--red);border-radius:4px;padding:2rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:#fff;line-height:1;">2026</div>
+          <div style="font-size:0.72rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.7);margin-top:0.4rem;">Prochaine édition</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--black);padding:3rem 3rem 5rem;border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-eyebrow">Ils nous ont déjà fait confiance</p>
+    <h2 class="section-title" style="color:var(--offwhite);margin-bottom:2rem;">Nos sponsors 2021</h2>
+    <img
+      src="images/sponsors-2021.jpg"
+      alt="Sponsors TEDxNouméa 2021"
+      style="width:100%;border-radius:4px;display:block;"
+    />
+  </div>
+</section>
+
+<section id="talks">
+  <div class="talks-header">
+    <div>
+      <p class="section-eyebrow">Sur YouTube · TEDxTalks</p>
+      <h2 class="section-title" style="color:var(--offwhite);">Toutes les conférences</h2>
+    </div>
+    <a href="https://www.youtube.com/@TEDx/search?query=tedxnoumea" target="_blank" rel="noopener" class="btn-secondary" style="white-space:nowrap;">Voir sur YouTube ↗</a>
+  </div>
+
+  <div class="year-filter" id="yearFilter" style="max-width:1200px;margin:0 auto 2.5rem;display:flex;gap:8px;flex-wrap:wrap;"></div>
+  <div id="talksContainer" style="max-width:1200px;margin:0 auto;"></div>
+</section>
+
+<section id="packs-sponsors" style="background:var(--offwhite);color:var(--black);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-eyebrow">Partenariats 2026</p>
+    <h2 class="section-title">Les niveaux de sponsoring</h2>
+    <p style="font-size:1.05rem;color:#555;max-width:680px;margin-bottom:3.5rem;line-height:1.8;">
+      Quatre packs sont disponibles. Chaque niveau offre une visibilité croissante&nbsp;: sur scène, dans les vidéos, sur le site, la billetterie et les réseaux sociaux. Tous les partenaires bénéficient de 2 places offertes et d'un tag sur nos publications.
+    </p>
+
+    <div style="margin-bottom:2rem;">
+      <a href="SPONSORING-2026.pdf" download class="btn-primary">
+        Télécharger le dossier de sponsoring (PDF)
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3.5rem;">
+
+      <div style="background:#fff;border:2px solid #e0dbd4;border-radius:6px;padding:2rem 1.5rem;display:flex;flex-direction:column;">
+        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#999;margin-bottom:0.8rem;">Light</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--black);line-height:1;margin-bottom:0.3rem;">150 000 F</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:1.8rem;">CFP</div>
+        <ul style="list-style:none;padding:0;flex:1;font-size:0.88rem;color:#444;display:flex;flex-direction:column;gap:0.8rem;">
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> 2 places offertes</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur les vidéos YouTube</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur scène au début du show</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur le site web</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+        </ul>
+      </div>
+
+      <div style="background:#fff;border:2px solid #e0dbd4;border-radius:6px;padding:2rem 1.5rem;display:flex;flex-direction:column;">
+        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#999;margin-bottom:0.8rem;">Standard</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--black);line-height:1;margin-bottom:0.3rem;">300 000 F</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:1.8rem;">CFP</div>
+        <ul style="list-style:none;padding:0;flex:1;font-size:0.88rem;color:#444;display:flex;flex-direction:column;gap:0.8rem;">
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> 2 places offertes</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur les vidéos YouTube</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur scène au début du show</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur le site web</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo + wording sur l'écran géant pendant l'accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil du public</li>
+        </ul>
+      </div>
+
+      <div style="background:#fff;border:2px solid var(--red);border-radius:6px;padding:2rem 1.5rem;display:flex;flex-direction:column;position:relative;">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:0 0 4px 4px;">Populaire</div>
+        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.8rem;margin-top:0.5rem;">Premium</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--black);line-height:1;margin-bottom:0.3rem;">400 000 F</div>
+        <div style="font-size:0.75rem;color:#aaa;margin-bottom:1.8rem;">CFP</div>
+        <ul style="list-style:none;padding:0;flex:1;font-size:0.88rem;color:#444;display:flex;flex-direction:column;gap:0.8rem;">
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> 2 places offertes</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les vidéos YouTube</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur scène + écran géant accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur le site web</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les tickets (4 sponsors max)</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Témoignage 1 min face caméra diffusé sur nos réseaux</li>
+        </ul>
+      </div>
+
+      <div style="background:var(--black);border:2px solid #333;border-radius:6px;padding:2rem 1.5rem;display:flex;flex-direction:column;">
+        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#888;margin-bottom:0.8rem;">VIP</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--offwhite);line-height:1;margin-bottom:0.3rem;">500 000 F</div>
+        <div style="font-size:0.75rem;color:#555;margin-bottom:1.8rem;">CFP</div>
+        <ul style="list-style:none;padding:0;flex:1;font-size:0.88rem;color:rgba(245,242,237,0.65);display:flex;flex-direction:column;gap:0.8rem;">
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> 2 places offertes</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les vidéos YouTube</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur scène + écran géant accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur le site web</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les tickets (4 sponsors max)</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Témoignage 1 min diffusé sur les réseaux + 50 € pub Facebook/Instagram</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Remerciement spécial par l'animateur en début de show</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Jeu sur scène pour gagner des places 2027 (logo en grand sur l'écran)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;padding:2.5rem;background:#fff;border-radius:6px;border:1px solid #e0dbd4;">
+      <p style="font-size:1.05rem;color:#555;max-width:560px;margin:0 auto 1.5rem;line-height:1.7;">
+        Intéressé·e par l'un de ces packs&nbsp;? Contactez-nous pour toute question ou pour rejoindre l'aventure TEDxNouméa 2026.
+      </p>
+      <a href="#contact" class="btn-primary">Nous contacter pour un partenariat</a>
+    </div>
+
+    <style>
+      @media (max-width: 1024px) {
+        #packs-sponsors > div > div[style*="grid-template-columns:repeat(4"] {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+      @media (max-width: 600px) {
+        #packs-sponsors > div > div[style*="grid-template-columns:repeat(4"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <p class="section-eyebrow" style="color:var(--red);">Contact</p>
+      <h2 class="section-title">Nous écrire</h2>
+      <p>Pour toute question sur l'événement, les auditions, les partenariats ou les relations presse, n'hésitez pas à nous écrire.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@TEDxTalks/search?query=TEDxNoumea" target="_blank" rel="noopener" class="social-link" aria-label="YouTube TEDxNouméa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="https://nc.linkedin.com/company/tedxnoumea" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn TEDxNouméa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <a href="/cdn-cgi/l/email-protection#aedacbcad6c0c1dbc3cbcfeec9c3cfc7c280cdc1c3"><span class="__cf_email__" data-cfemail="077362637f6968726a626647606a666e6b2964686a">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-detail">
+          <strong>Téléphone</strong>
+          <a href="tel:+687786255">(+687) 78 62 55</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-detail">
+          <strong>Lieu</strong>
+          <span>Nouméa, Nouvelle-Calédonie</span>
+        </div>
+      </div>
+      <div class="contact-item" style="margin-top:0.5rem;">
+        <a href="https://forms.gle/HHLRxAATYXz8TWDH8" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;">
+          Formulaire d'inscription aux auditions 2026
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <img src="logotedxnoumea.png" alt="TEDxNouméa" style="height:40px;width:auto;display:block;" />
+  </div>
+  <p>&copy; 2025 TEDxNouméa. Tous droits réservés.</p>
+  <p class="ted-mention">TEDxNouméa est un événement organisé de façon indépendante sous licence TED.<br>TED et TEDx sont des marques déposées de TED Conferences LLC.</p>
+</footer>
+
+<script>
+const TALKS_BY_YEAR = {
+  2016: ["YK4rxKzCZbg","qd5IFXruEsQ","SgE3mcqL5yY","-7enLLdgSRw",
+         "XwjjhGsZnkY","SLs4AEOqVh0","6gUsi_RkkZo","lcvdftHfF0U"],
+  2017: ["XqRc0K8WPiY","0SFQize20uI","64UG8fKymNQ","Z3sDkZSCmHo",
+         "1HDvcBDlNhg","RUTidfuQzBw","AmM_PnTnizQ","Qq3cars_Dxs","qNKeHPsJoQ0"],
+  2018: ["lbm9IZj3ycc","LZznHRr9ebY","89R0n5oDtOs","UOxVJM4fATw",
+         "5Gd7byxNd3w","3a5zm-RCXwc","bZ2u8x43rHA"],
+  2020: ["AKlb3iMuZ3A","Gb3htzXHBeE","vMVuQgnmWPo","HC8YlsEsWTs",
+         "2C2fApPoThI","uF1i29J_MUI","inOEUk-T45Q","gLCdFPK60JY",
+         "o46FCE_iMe4","LSQbA4iLmS0","nFY55X7aMyM","FdAEa3_cjCM"],
+  2021: ["zIxU-1k0ADc","h4Nc-eHQs-s","V6S0Z7hLORE","LtmT0_D31-I",
+         "4s3fmSq-cTc","Vtd3XSKpeMQ","E0d_At446N0","Ph6r5xRUbBI",
+         "ppmX67BTl0k","ZfcgbYxM8-E","AMlIq0ffKEw","IrVtcirevHo",
+         "DuyYCUFOmR4","xUJH059xDoc","vjjaL1ThIUc","fKY1h8cMYEY","goB4vA_YYcA"],
+  2022: ["Zbk1PI-GSOM","KwXOQWHCpKw","X6JkUfn2dRg","AWB-dFIP5dY",
+         "ECxPz8jcobM","eUPcLk4U8lQ","z3S0gKWUnwE","43nihl8FXzE",
+         "RZto9vynrFQ","k62hrJcRr6I","HgX7BqRJ3_M","ZBIL37jcsKw",
+         "Asc28wYPMyg","KXkfFIAYzuM","d5uv3M6x65Y"]
+};
+
+const ALL_IDS = Object.values(TALKS_BY_YEAR).flat();
+const META = {};
+
+
+function buildTalks() {
+  const container  = document.getElementById('talksContainer');
+  const filterWrap = document.getElementById('yearFilter');
+  const years = Object.keys(TALKS_BY_YEAR).map(Number).sort((a,b) => b-a);
+
+  years.forEach(y => {
+    const btn = document.createElement('button');
+    btn.className = 'year-filter-btn';
+    btn.textContent = y;
+    btn.addEventListener('click', () => {
+      const el = document.getElementById('year-' + y);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    filterWrap.appendChild(btn);
+  });
+
+  years.forEach(y => {
+    const title = document.createElement('div');
+    title.className = 'year-group-title';
+    title.id = 'year-' + y;
+    title.textContent = y;
+    container.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'talks-grid';
+    TALKS_BY_YEAR[y].forEach(id => grid.appendChild(buildCard(id)));
+    container.appendChild(grid);
+  });
+
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const y = e.target.id.replace('year-','');
+        document.querySelectorAll('.year-filter-btn').forEach(b =>
+          b.classList.toggle('active', b.textContent === y));
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.year-group-title').forEach(el => spy.observe(el));
+
+  loadAllMetadata();
+}
+
+function buildCard(id) {
+  const card = document.createElement('div');
+  card.className = 'talk-card';
+  card.innerHTML =
+    '<div class="talk-thumb">' +
+      '<img src="https://img.youtube.com/vi/' + id + '/mqdefault.jpg" alt="TEDxNouméa" loading="lazy"/>' +
+      '<div class="play-overlay"><div class="play-btn">' +
+        '<svg width="14" height="16" viewBox="0 0 14 16" fill="white"><path d="M1 1l12 7-12 7V1z"/></svg>' +
+      '</div></div>' +
+    '</div>' +
+    '<div class="talk-info">' +
+      '<div class="talk-year">TEDxNouméa</div>' +
+      '<div class="talk-title" id="title-' + id + '">Chargement…</div>' +
+      '<div class="talk-speaker" id="speaker-' + id + '"></div>' +
+    '</div>';
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener');
+  });
+  return card;
+}
+
+async function loadMetadata(id) {
+  try {
+    const res = await fetch(
+      'https://noembed.com/embed?url=https://www.youtube.com/watch?v=' + id,
+      { signal: AbortSignal.timeout(8000) }
+    );
+    const data = await res.json();
+    const raw = data.title || '';
+    const parts = raw.split('|').map(s => s.trim());
+    const title   = parts[0] || id;
+    const speaker = parts.length >= 3 ? parts[1] : (parts[1] || '');
+    META[id] = { title, speaker };
+    const tEl = document.getElementById('title-'   + id);
+    const sEl = document.getElementById('speaker-' + id);
+    if (tEl) tEl.textContent = title;
+    if (sEl) sEl.textContent = speaker;
+  } catch {
+    const tEl = document.getElementById('title-' + id);
+    if (tEl) tEl.textContent = 'Conférence TEDxNouméa';
+  }
+}
+
+async function loadAllMetadata() {
+  const batch = 6;
+  for (let i = 0; i < ALL_IDS.length; i += batch) {
+    const slice = ALL_IDS.slice(i, i + batch);
+    await Promise.all(slice.map(id => loadMetadata(id)));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', buildTalks);
+</script>
+</body>
+</html>
