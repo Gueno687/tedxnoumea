@@ -631,10 +631,24 @@
       100% { background-position: -200% 0; }
     }
 
+    /* ===================== PARTENAIRES GRIDS ===================== */
+    .partenaires-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .partenaires-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
     /* ===================== RESPONSIVE ===================== */
     @media (max-width: 1024px) {
       .talks-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .partenaires-inner { gap: 3rem; }
     }
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -652,6 +666,12 @@
       .gallery-slot.large { grid-column: span 1; grid-row: span 1; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
       .ted-mention { text-align: center; }
+      .partenaires-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .partenaires-stats-grid { gap: 1rem; }
+      .talks-header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    }
+    @media (max-width: 420px) {
+      .partenaires-stats-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .talks-grid { grid-template-columns: 1fr; }
@@ -686,8 +706,32 @@
       margin: 3rem 0 1.2rem;
       padding-bottom: 0.6rem;
       border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
-    .year-group-title:first-child { margin-top: 0; }
+    .year-group:first-child .year-group-title { margin-top: 0; }
+    .year-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      flex-shrink: 0;
+      border: 1px solid #333;
+      border-radius: 50%;
+      color: var(--offwhite);
+      transition: transform 0.25s ease, border-color 0.2s;
+    }
+    .year-toggle svg { transition: transform 0.25s ease; }
+    .year-group.collapsed .year-toggle svg { transform: rotate(-90deg); }
+
+    /* ===================== YEAR COLLAPSE (MOBILE ONLY) ===================== */
+    @media (max-width: 768px) {
+      .year-toggle { display: flex; }
+      .year-group-title { cursor: pointer; }
+      .year-group.collapsed .talks-grid { display: none; }
+    }
     .talks-grid { display: grid; grid-template-columns: repeat(4,1fr); gap:1.5rem; }
     @media (max-width:1024px) { .talks-grid { grid-template-columns: repeat(3,1fr); } }
     @media (max-width:768px)  { .talks-grid { grid-template-columns: repeat(2,1fr); } }
@@ -776,7 +820,7 @@
 
 <section id="partenaires" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);">
   <div style="max-width:1200px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+    <div class="partenaires-inner">
       <div>
         <p class="section-eyebrow">Partenariats 2026</p>
         <h2 class="section-title" style="color:var(--offwhite);">Rejoignez l'aventure TEDxNouméa</h2>
@@ -794,7 +838,7 @@
           <a href="#contact" class="btn-secondary">Nous contacter</a>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div class="partenaires-stats-grid">
         <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:2rem;text-align:center;">
           <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:900;color:var(--red);line-height:1;">2016</div>
           <div style="font-size:0.72rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:0.4rem;">Première édition</div>
@@ -816,13 +860,21 @@
   </div>
 </section>
 
+<section style="background:var(--red);padding:4rem 3rem;text-align:center;">
+  <div style="max-width:800px;margin:0 auto;">
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:1.5rem;">Le TEDxNouméa 2026 cherche à compléter ses sponsors. Rejoignez-nous&nbsp;!</h2>
+    <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);margin-bottom:2rem;line-height:1.75;">Consultez notre dossier de sponsoring pour découvrir les opportunités de partenariat et rejoindre l'aventure TEDxNouméa 2026.</p>
+    <a href="SPONSORING-2026.pdf" download class="btn-white">Télécharger le dossier de sponsoring (PDF)</a>
+  </div>
+</section>
+
 <section style="background:var(--black);padding:3rem 3rem 5rem;border-top:1px solid rgba(255,255,255,0.06);">
   <div style="max-width:1200px;margin:0 auto;">
     <p class="section-eyebrow">Ils nous ont déjà fait confiance</p>
-    <h2 class="section-title" style="color:var(--offwhite);margin-bottom:2rem;">Nos sponsors 2021</h2>
+    <h2 class="section-title" style="color:var(--offwhite);margin-bottom:2rem;">Nos sponsors 2026</h2>
     <img
-      src="images/sponsors-2021.jpg"
-      alt="Sponsors TEDxNouméa 2021"
+      src="images/SPONSORS-2026.png"
+      alt="Sponsors TEDxNouméa 2026"
       style="width:100%;border-radius:4px;display:block;"
     />
   </div>
@@ -866,7 +918,7 @@
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur les vidéos YouTube</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur scène au début du show</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur le site web</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (petite taille) sur la billetterie Eticket</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
         </ul>
       </div>
@@ -880,10 +932,12 @@
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur les vidéos YouTube</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur scène au début du show</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur le site web</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (taille moyenne) sur la billetterie Eticket</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo + wording sur l'écran géant pendant l'accueil</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil du public</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo sur le bandeau Eticket de l'événement</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Code promo -10% sur les tickets pour vos clients</li>
         </ul>
       </div>
 
@@ -897,11 +951,16 @@
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les vidéos YouTube</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur scène + écran géant accueil</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur le site web</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les tickets (4 sponsors max)</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie Eticket</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo + wording sur l'écran géant pendant l'accueil</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo sur le bandeau Eticket de l'événement</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Code promo -10% sur les tickets pour vos clients</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo dans les emails reçus par les clients (4 sponsors max)</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Témoignage 1 min face caméra diffusé sur nos réseaux</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo dans le bandeau de notre page Facebook</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Inclus dans nos newsletters (avant, pendant, après l'événement)</li>
         </ul>
       </div>
 
@@ -914,11 +973,16 @@
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les vidéos YouTube</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur scène + écran géant accueil</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur le site web</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur les tickets (4 sponsors max)</li>
-          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie eticket</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo (grande taille) sur la billetterie Eticket</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Tag page Facebook / Instagram sur tous nos posts</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo + wording sur l'écran géant pendant l'accueil</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Oriflamme dans l'espace d'accueil</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo sur le bandeau Eticket de l'événement</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Code promo -10% sur les tickets pour vos clients</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo dans les emails reçus par les clients (4 sponsors max)</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Témoignage 1 min diffusé sur les réseaux + 50 € pub Facebook/Instagram</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Logo dans le bandeau de notre page Facebook</li>
+          <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Inclus dans nos newsletters (avant, pendant, après l'événement)</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Remerciement spécial par l'animateur en début de show</li>
           <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--red);font-weight:700;flex-shrink:0;">&#10003;</span> Jeu sur scène pour gagner des places 2027 (logo en grand sur l'écran)</li>
         </ul>
@@ -948,6 +1012,7 @@
 
   </div>
 </section>
+
 
 <section id="contact">
   <div class="contact-inner">
@@ -1057,22 +1122,45 @@ function buildTalks() {
     btn.textContent = y;
     btn.addEventListener('click', () => {
       const el = document.getElementById('year-' + y);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!el) return;
+      const grp = el.closest('.year-group');
+      if (grp && window.innerWidth <= 768) grp.classList.remove('collapsed');
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     filterWrap.appendChild(btn);
   });
 
-  years.forEach(y => {
+  years.forEach((y, idx) => {
+    const group = document.createElement('div');
+    group.className = 'year-group';
+    if (idx !== 0) group.classList.add('collapsed'); // repliée par défaut sur mobile (sauf l'année la plus récente)
+
     const title = document.createElement('div');
     title.className = 'year-group-title';
     title.id = 'year-' + y;
-    title.textContent = y;
-    container.appendChild(title);
+
+    const label = document.createElement('span');
+    label.textContent = y;
+    title.appendChild(label);
+
+    const toggle = document.createElement('span');
+    toggle.className = 'year-toggle';
+    toggle.setAttribute('aria-label', 'Déplier / replier ' + y);
+    toggle.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>';
+    title.appendChild(toggle);
+
+    title.addEventListener('click', () => {
+      if (window.innerWidth <= 768) group.classList.toggle('collapsed');
+    });
+
+    group.appendChild(title);
 
     const grid = document.createElement('div');
     grid.className = 'talks-grid';
     TALKS_BY_YEAR[y].forEach(id => grid.appendChild(buildCard(id)));
-    container.appendChild(grid);
+    group.appendChild(grid);
+
+    container.appendChild(group);
   });
 
   const spy = new IntersectionObserver(entries => {
